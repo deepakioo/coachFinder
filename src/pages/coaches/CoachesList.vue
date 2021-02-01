@@ -40,7 +40,7 @@ export default {
         if(this.activeFilters.backend && coach.areas.includes('backend')){
           return true
         }
-        if(this.activeFilters.carrer && coach.areas.includes('carrer')){
+        if(this.activeFilters.career && coach.areas.includes('career')){
           return true
         }
         return false;
