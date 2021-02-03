@@ -6,11 +6,11 @@
         </div>
         <div>
             <label for="message">Message</label>
-            <textarea  id="message"  v-model.trim="message" rows="5"></textarea>
+            <textarea  id="message"  v-model.trim="message" rows="4"></textarea>
         </div>
         <p class="errors" v-if="!formIsValid">Please enter a valid email and non-empty message</p>
         <div class="actions">
-            <base-button>Send Message</base-button>
+          <base-button>Send Message</base-button>
         </div>
     </form>
 </template>
@@ -31,6 +31,12 @@ export default {
              this.formIsValid = false
              return
          }
+         this.$store.dispatch('requests/contactCoach', {
+              email: this.email,
+              message: this.message,
+              coachId: this.$route.params.id
+         });
+         this.$router.replace('/coaches')
         }
     }
 }
@@ -59,7 +65,7 @@ textarea {
   width: 100%;
   font: inherit;
   border: 1px solid #ccc;
-  padding: 0.15rem;
+  padding: 0.50rem;
 }
 
 input:focus,
