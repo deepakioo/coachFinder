@@ -52,9 +52,7 @@ export default {
             (coach) => coach.id === this.id)
             
     },
-    mounted(){
-        console.log("hello");
-    }
+    
 
 }
 </script>
