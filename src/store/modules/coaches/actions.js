@@ -26,15 +26,13 @@ export default {
     },
 
     async loadCoaches(context) {
-       const response = await fetch(`https://coachfinder-32157-default-rtdb.firebaseio.com/coaches.jso`)
-       console.log("response",response)
+       const response = await fetch(`https://coachfinder-32157-default-rtdb.firebaseio.com/coaches.json`)
+       
        const responseData = await response.json()
-       console.log("responsedata",responseData)
-       if(!responseData.ok){
-        //    ...
-        const error = new Error(responseData.message || 'Failed to fetch!')
-        throw error
-       }
+           if(!response.ok){
+            const error = new Error(responseData.message || 'Failed to fetch!')
+            throw error
+           }
 
        const coaches = [];
 
@@ -51,6 +49,5 @@ export default {
            coaches.push(coach)
        }
        context.commit('setCoaches', coaches);
-       console.log('coaches', coaches)
     }
 }

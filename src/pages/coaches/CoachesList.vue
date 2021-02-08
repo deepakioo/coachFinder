@@ -39,6 +39,7 @@ export default {
   computed: {
     filteredCoaches() {
       const coaches = this.$store.getters['coaches/coaches'];
+      
       return coaches.filter((coach)=> {
         if(this.activeFilters.frontend && coach.areas.includes('frontend')){
           return true
@@ -46,7 +47,7 @@ export default {
         if(this.activeFilters.backend && coach.areas.includes('backend')){
           return true
         }
-        if(this.activeFilters.career && coach.areas.includes('career')){
+        if(this.activeFilters.career && coach.areas.includes('carrer')){
           return true
         }
         return false;
